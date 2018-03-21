@@ -1,0 +1,43 @@
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist" *ngIf="!show">
+    <li class="nav-item">
+      <a class="nav-link" id="login-tab" data-toggle="tab" routerLink="/login" role="tab" aria-controls="login" aria-selected="true">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" id="register-tab" data-toggle="tab" routerLink="/register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+    </li>
+  </ul>
+
+<div class="text-center">
+  <form class="form-signin" (submit)="onRegisterSubmit()" #registrationForm="ngForm" novalidate>
+    <img class="mb-2" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+    <label for="su-email" class="sr-only">email</label>
+    <input type="text" name="su-email" id="su-email" class="form-control" placeholder="Email" required [(ngModel)]="user.email" #email="ngModel">
+    <div [hidden]="email.valid || email.pristine"
+         class="alert alert-danger">
+      Email is required, example john@doe.com
+    </div>
+    <label for="su_username" class="sr-only">Username</label>
+    <input type="text" name="su_username" id="su_username" class="form-control" placeholder="Username" required autofocus [(ngModel)]="user.username" #username="ngModel">
+    <div [hidden]="username.valid || username.pristine"
+         class="alert alert-danger">
+      Name is required
+    </div>
+    <label for="su-password" class="sr-only">Password</label>
+    <input type="password" name="su-password" id="su-password" class="form-control" placeholder="Password" required [(ngModel)]="user.password" #password="ngModel">
+    <div [hidden]="password.valid || password.pristine"
+         class="alert alert-danger">
+      Password is required
+    </div>
+    <label for="conf-password" class="sr-only">Password</label>
+    <input type="password" name="conf-password" id="conf-password" class="form-control" placeholder="Confirm password" required [(ngModel)]="user.passwordConf" #conf_password="ngModel">
+    <div [hidden]="conf_password.valid || conf_password.pristine"
+         class="alert alert-danger">
+      Retype password
+    </div>
+    <button class="btn btn-outline-secondary btn-lg btn-block" type="submit" [disabled]="registrationForm.invalid">Sign up</button>
+    <p class="mt-4 mb-3 text-muted">&copy; 2017-2018</p>
+  </form>
+</div>

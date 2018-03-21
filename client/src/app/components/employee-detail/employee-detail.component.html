@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+
+<div class="card">
+  <div class="card-header text-center">
+    Employee detail
+  </div>
+  <form *ngIf="employee">
+    <div class="form-group row text-right mt-3">
+      <label class="col-sm-2 col-form-label">Fullname </label>
+      <div class="col-sm-10 text-left">
+        <p class="form-control"> {{employee.name}} </p>
+      </div>
+    </div>
+    <div class="form-group row text-right">
+      <label class="col-sm-2 col-form-label">Position </label>
+      <div class="col-sm-10 text-left">
+        <p class="form-control">{{employee.position}}</p>
+      </div>
+    </div>
+    <div class="form-group row text-right">
+      <label class="col-sm-2 col-form-label">Department </label>
+      <div class="col-sm-10 text-left">
+        <p class="form-control">{{employee.department}}</p>
+      </div>
+    </div>
+    <div class="form-group row text-right">
+      <label class="col-sm-2 col-form-label">Status </label>
+      <div class="col-sm-10 text-left">
+        <p class="form-control">{{employee.hireType}}</p>
+      </div>
+    </div>
+    <div class="form-group row text-right">
+      <label class="col-sm-2 col-form-label">Salary </label>
+      <div class="col-sm-10 text-left">
+        <p class="form-control">{{employee.salary}}</p>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-5">
+        <button type="button" (click)="goBack()" class="btn btn-outline-secondary btn-sm">Back</button>
+      </div>
+    </div>
+  </form>
+</div>
